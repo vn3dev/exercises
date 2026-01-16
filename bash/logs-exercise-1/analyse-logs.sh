@@ -21,10 +21,15 @@ for LOG_FILE in $LOG_FILE; do
     for PATTERN in ${ERROR_PATTERNS[@]}; do
 
         echo -e "\nCount how many $PATTERN are in the $LOG_FILE file" >> "$REPORT_FILE"
+        ERROR_COUNT=$(grep -c "$PATTERN" "$LOG_FILE")
         grep -c "$PATTERN" "$LOG_FILE" >> "$REPORT_FILE"
 
         echo -e "\nSearch for $PATTERN in $LOG_FILE file" >> "$REPORT_FILE"
         grep "$PATTERN" "$LOG_FILE" >> "$REPORT_FILE"
+
+        if [ "$ERROR_COUNT" -gt 10 ]; then
+            echo -e "\nAction Required: too many $PATTERN errors in log file $LOG_FILE" 
+        fi
 
     done
 done
