@@ -13,6 +13,11 @@ echo $LOG_FILE
 
 for LOG_FILE in $LOG_FILE; do
 
+    echo -e "\n"
+    echo "====================================="
+    echo "==========$LOG_FILE=========="
+    echo "====================================="
+
     for PATTERN in ${ERROR_PATTERNS[@]}; do
 
         echo -e "\nCount how many $PATTERN are in the $LOG_FILE file"
