@@ -14,4 +14,11 @@ fi # fim do bloco
 
 if [[ -f file.txt ]]; then # testa se o arquivo file.txt existe: "True if file exists and is a regular file." fonte: "help test" no terminal bash para documentacao
     echo 'file.txt exists and is a file' # imprime a mensageem dizendo que existe
+    while [[ -f file.txt ]]; do # loop while para continuar impriminto uma msg enquanto o arquivo existir
+        echo 'file.txt found' # msg do loop
+        sleep 1 # intervalo de 1 seg para nao ficar spammando
+    done # fim do loop
+    echo 'file.txt deleted' # avisa quando a file for deletada
+else # nao encontrar a file, o script avisa q n achou
+    echo 'file.txt not found' # msg se n encontrar a file
 fi # fim do bloco
