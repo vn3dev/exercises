@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
 greet() {
-    local name=$1 #variavel name eh o primeiro argumento passado para essa func
-    echo "hello $name" #imprime a variavel $name
+    local name=$1 # variavel name eh o primeiro argumento passado para essa func
+    echo "hello $name" # imprime a variavel $name
 }
 
-for name in "$@"; do #representa um vetor de parametros no imput, aceita varias strings separadas por " "
-    greet "$name" #executa func greet
+for name in "$@"; do # representa um vetor de parametros no imput, aceita varias strings separadas por " "
+    greet "$name" >> file.txt # executa func greet e envia para file.txt
 done
+
+var=$(greet vini) # armazena o retorno da func na var
+echo "var is $var" # exibe a var
 
