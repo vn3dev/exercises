@@ -1,0 +1,1 @@
+Cria um bot simples em python para dar bom dia no grupo da empresa
