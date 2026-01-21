@@ -22,3 +22,7 @@ if [[ -f file.txt ]]; then # testa se o arquivo file.txt existe: "True if file e
 else # nao encontrar a file, o script avisa q n achou
     echo 'file.txt not found' # msg se n encontrar a file
 fi # fim do bloco
+
+# tambem eh possivel usar [ -f file.txt ] ou teste -f file.txt
+# eh possivel executar condicoes diretamente na mesma linha de codigo
+# por exemplo: "[[ -f file.txt ]] && echo it exists" pois $? retorna 0 e o proximo item da chain passa a ser verdade
