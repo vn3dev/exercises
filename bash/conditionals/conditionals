@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-a=2
-b=2
+a=2 # atribui 2 a variavel a
+b=2 # atribui 2 a variavel b
+if [[ $a == $b ]]; then # condicional para executar bloco se valor de a for igual ao valor de b
+    echo 'a and b are the same' # imprime a mensagem que a e b sao iguais
+fi # fim do bloco
 
-if [[ $a == $b ]]; then
-    echo 'a and b are the same'
-fi
+c=2 # atribui 2 a variavel c
+d=3 # atribui 3 a variavel d
+if [[ $c != $d ]]; then # condicional para executar bloco se valor de c for diferente do valor de d
+    echo 'c and d are NOT the same' # imprime a mensagem que nao sao iguais
+fi # fim do bloco
+
+if [[ -f file.txt ]]; then # testa se o arquivo file.txt existe: "True if file exists and is a regular file." fonte: "help test" no terminal bash para documentacao
+    echo 'file.txt exists and is a file' # imprime a mensageem dizendo que existe
+fi # fim do bloco
