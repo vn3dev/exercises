@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-for name in foo bar baz; do
-    echo "name is $name"
+max=5
+for ((i = 0; i < max; i++)); do
+    echo "name is $i"
 done
