@@ -12,7 +12,16 @@ case "$s" in # estrutura case parecida com switch em C
     bomboclat)
         echo "DA BOMBOCLAT"
         ;;
-    *) # usado para default "*" = qualquer outra coisa
+    *) # usado para default "*" = qualquer outra coisa WILDCARDS
         echo "identifique-se ou morra"
         ;;
 esac # fim do switch
+
+# case "$s" in
+#    vini) echo "oi vini"
+#    vn3) echo "oi vn3"
+#    bomboclat) echo "DA BOMBOCLAT"
+#    *) echo "identifique-se ou morra"
+# esac
+
+# se for so 1 comando pode colocar na mesma linha
