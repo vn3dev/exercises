@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+s=$1 # define a variavel de input para ser o primeiro parametro apos o comando
+
+case "$s" in # estrutura case parecida com switch em C
+    vini) # se $1 for vini
+        echo "oi vini"
+        ;; # fim do bloco, semelhante a break
+    vn3)
+        echo "oi vn3"
+        ;;
+    bomboclat)
+        echo "DA BOMBOCLAT"
+        ;;
+    *) # usado para default "*" = qualquer outra coisa
+        echo "identifique-se ou morra"
+        ;;
+esac # fim do switch
