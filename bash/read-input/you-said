@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+read -r word # -r de raw, le o input de forma crua, incluindo literalmente todos os caracteres
+echo "you said $word"
+
+# echo whatever | ./you-said - pipeline que recebe a palavra e read le. eh possivel criar pipelines com conteudos de arquivos, 
+#ele le a primeira palavra
