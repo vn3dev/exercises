@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# script simples em stackando inputs em uma pipeline e atribuindo eles em uma var caso eu esqueca a numeracao dos exercicios
+
+# 1 ler diretorios q comecam em numeros
+# 2 encontrar o maior numero
+# 3 somar 1
+# 4 retornar valor final
+
+last_num=$(ls -d [0-9][0-9]* | cut -c1-2 | sort -n | tail -1) # pipeline para buscar o numero dos diretorios
+# ls -d [0-9][0-9]* - lista os diretorios com -d que tenham apenas numeros entre 0 e 9 nos dois primeiros digitos >>*<<
+# cut -c1-2 - corta a string apenas os dois primeiros caracteres c1 e c2
+# sort -n - para ordenar de forma crescente
+# tail -1 - pega só a ultima linha da lista
+
+next_num=$((10#$last_num + 1)) # 10# para ler como decimal e soma 1 ao numero que encontrar no diretorio
+
+next_final=$(printf "%02d" $next_num) # formatacao rapida para ter sempre 2 digitos
+
+echo "next: $next_final"
