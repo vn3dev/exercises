@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
-read -r word # -r de raw, le o input de forma crua, incluindo literalmente todos os caracteres
-echo "you said $word"
+# read -r word # -r de raw, le o input de forma crua, incluindo literalmente todos os caracteres
+# echo "you said $word"
 
 # echo whatever | ./you-said - pipeline que recebe a palavra e read le. eh possivel criar pipelines com conteudos de arquivos, 
 #ele le a primeira palavra
+
+while read -r line; do 
+    echo "we read line: $line" # loop para ler todas a linhas de um arquivo. pode ser usado em uma pipeline com cat $file
+done # - demora mais para ler um arquivo linha por linha do que ler ele inteiro com cat / CUIDADO COM QUEBRA DE LINHA
+
+# while read -r line || [[ -n $line ]]; do # so executa se tiver quebra de linha para n perder dados
+#    echo "we read line: $line" 
+# done
+
+# ./you-said < $(endereco do arquivo)
+# faz a mesma coisa que o read linha por linha, mas apenas com builtins
+# "<" pode estar em qlq lugar e em qlq ordem
