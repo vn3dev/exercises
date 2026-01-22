@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Crie um script que organize os arquivos da pasta atual em subpastas baseadas na extensão do arquivo.
+# O que fazer: O script deve percorrer todos os arquivos do diretório. 
+# Se encontrar um arquivo .jpg, deve movê-lo para uma pasta chamada Imagens. 
+# Se for .txt, para uma pasta Documentos.
+
+# dirImg=$(./Imagens/) # tentativa e erro, a ideia era fazer retornar um valor e caso !=0 criaria o diretorio imagens, 
+# mas nao eh possivel manipular diretorios como se fossem arquivos
+
+dirImg="Imagens"
+dirDoc="Documentos"
+dirArq="Arquivos"
+s=$1
+
+# if ! [dirImg=$(pwd/Imagens/)]; then # logica mais correta mas ainda tentando implementar como arquivo
+#    echo "nao existe"
+# fi
+# echo "$?"
+# echo "$dirImg"
+
+# cria diretorios Imagens e Documentos se n existirem
+if ! [ -d "$dirImg" ]; then # escolhi colchetes simples para portabilidade
+    echo "$dirImg n existe, criando diretorio:"
+    mkdir Imagens  
+fi
+
+if ! [ -d "$dirDoc" ]; then
+    echo "$dirDoc n existe, criando diretorio:"
+    mkdir Documentos
+fi
+
+if [ "$s" = "reboot" ]; then # sistema feito por ultimo, forma de reorganizar os arquivos sem precisar mover manualmente LEMBRAR DO ESPACO
+    echo "reajustando"
+    for file in $dirDoc/*.txt $dirImg/*.jpg; do # encontra os arquivos correspondentes com as terminologias nos diretorios
+        mv $file $dirArq # move de volta
+        echo "$file movido de volta para $dirArq" # info visual
+    done
+else
+    for file in $dirArq/*; do # le cada um dos arquivos dentro de Arquivos/
+        case "$file" in # uso de case para praticar, mas poderia ter sido feito com if
+            *.txt)  
+                mv $file $dirDoc/ # move para o diretorio de documentos
+                echo "$file movido para $dirDoc" 
+                ;;
+            *.jpg) 
+                mv $file $dirImg/ # move para o diretorio de imagens
+                echo "$file movido para $dirImg"
+                ;;
+        esac
+    done
+fi
+
