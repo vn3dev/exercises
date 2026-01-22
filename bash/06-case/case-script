@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+hello() {
+	local s=$1 # var local pra ler o proximo argumento
+	echo "hello $s!" # output
+}
+
+goodbye() {
+	local s=$1 # var local pra ler o proximo argumento
+	echo "goodbye $s!" # output
+}
+
+if (($# == 0)); then # "(())" para expressoes matematicas HELP LET para flags, "$#" = total de argumentos
+	echo 'name required!' >&2 # se nao por argumentos retorna o aviso, evia o erro para o canal de erros (output 2), 
+# ao enviar para 2 ele evita que o erro seja escrito em uma file.txt de log
+	exit 1 # sai do script
+fi
+
+# for name in "$@"; do # "$@" eh um array de argumentos que o user coloca no input
+# 	if [[ $name == d* ]]; then # checa se o argumento começa com d
+#		hello "$name" 
+#	elif [[ $name == b* ]]; then # elif faz uma sequencia de if para evitar aninhar condições e manter ele no mesmo nivel visual
+#    # checa se o argumento começa com b
+#		hello "$name" # ola se alguma das conds forem verdade
+#	else
+#		goodbye "$name" # adeus se nenhuma for verdade
+#	fi
+#done
+
+for name in "$@"; do
+    case "$name" in
+        d*) echo "hello $name";;
+        b*) echo "hello $name";;
+        *) echo "goodbye $name";;
+    esac
+done
