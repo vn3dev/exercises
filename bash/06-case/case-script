@@ -28,9 +28,8 @@ fi
 #done
 
 for name in "$@"; do
-    case "$name" in
-        d*) echo "hello $name";;
-        b*) echo "hello $name";;
+    case "$name" in   
+        d* | b*) echo "hello $name";; # um jeito de fazer uma pipeline e incluir um input adicional que retorna o mesmo output
         *) echo "goodbye $name";;
     esac
 done

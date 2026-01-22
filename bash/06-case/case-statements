@@ -18,10 +18,10 @@ case "$s" in # estrutura case parecida com switch em C
 esac # fim do switch
 
 # case "$s" in
-#    vini) echo "oi vini"
-#    vn3) echo "oi vn3"
-#    bomboclat) echo "DA BOMBOCLAT"
-#    *) echo "identifique-se ou morra"
+#    vini) echo "oi vini";;
+#    vn3) echo "oi vn3";;
+#    bomboclat) echo "DA BOMBOCLAT";;
+#    *) echo "identifique-se ou morra";;
 # esac
 
 # se for so 1 comando pode colocar na mesma linha
