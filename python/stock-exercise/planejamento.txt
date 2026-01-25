@@ -1,0 +1,9 @@
+# incluir um menu que o usuario pode:
+    # add itens e remover
+    # buscar por um item
+    # atualizar quantidades
+    # ver quantidade total de itens no estoque
+    # alerta de estoque baixo
+    # log de transito de produtos
+
+# sistema de login?
